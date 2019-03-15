@@ -1,0 +1,8 @@
+<h1>Lista ToDo</h1>
+<ul>
+  <li *ngFor="let item of lista">{{item}}</li>
+</ul>
+<div>
+  <input [(ngModel)]="tekstInput"  >
+  <button (click)="dodajDoListy()" class="btn btn-success" >Dodaj</button>
+  </div>
