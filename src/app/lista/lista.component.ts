@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-interface elementToDo {
-  nazwa: string;
-  dataWykonania: Date;
-  Wykonane: boolean;
-}
+import { ListaToDoService, elementToDo } from './../lista-to-do.service';
+import {Component, OnInit } from '@angular/core';
 
 
 @Component({

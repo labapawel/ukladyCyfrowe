@@ -1,0 +1,4 @@
+<h1>Lista ToDo</h1>
+<ul>
+  <li *ngFor="let item of lista; let i = index"  >{{item.nazwa}} <span class="btn btn-danger"  (click)="usun(item)">X</span> <span class="btn btn-success"  (click)="wykonane(item)">V</span></li>
+</ul>

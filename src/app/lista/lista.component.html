@@ -1,12 +1,6 @@
-<h1>Lista ToDo</h1>
-<ul>
-  <li *ngFor="let item of listaWyszukana; let i = index"  >{{item.nazwa}} <span class="btn btn-danger"  (click)="usun(item)">X</span> <span class="btn btn-success"  (click)="wykonane(item)">V</span></li>
-</ul>
+
 <h1>Lista Wykonane</h1>
 <ul>
   <li *ngFor="let item of listaWykonana; let i = index"  >{{item.nazwa}} <span class="btn btn-danger"  (click)="usun(item)">X</span></li>
 </ul>
-<div>
-  <input [(ngModel)]="tekstInput" (keyup)="szukaj(tekstInput)"  >
-  <button (click)="dodajDoListy()" class="btn btn-success" >Dodaj</button>
-  </div>
+
