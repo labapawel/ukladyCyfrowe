@@ -11,61 +11,26 @@ import {Component, OnInit } from '@angular/core';
 
 export class ListaComponent implements OnInit {
 
+  lista: Array<elementToDo>;
 
+  constructor(private _listaToDo: ListaToDoService) {
+    this._listaToDo.getList().subscribe( (_list) => {
+      this.lista = _list.filter(e => !e.Wykonane);
+    })
+   }
 
-  // tablica stringow
-  lista: Array<elementToDo> = new Array<elementToDo>();
-  listaWyszukana: Array<elementToDo>;
-  listaWykonana: Array<elementToDo>;
+   usun(item)
+   {
+    this._listaToDo.usun(item);
+   }
 
-  tekstInput: string;  // model dla inputa
+   wykonane(item)
+   {
+    this._listaToDo.wykonane(item);
+   }
 
-  constructor() { }
 
   ngOnInit() {
-
-    this.szukaj(this.tekstInput);
-
-  }
-
-  szukaj(param)
-  {
-    if(!param || param == '')
-    {
-      this.listaWyszukana = this.lista.filter(e => !e.Wykonane);
-      this.listaWykonana = this.lista.filter(e => e.Wykonane);
-    }
-    else
-    {
-      this.listaWyszukana = this.lista.filter(e => e.nazwa.includes(param) && !e.Wykonane);
-      this.listaWykonana = this.lista.filter(e => e.nazwa.includes(param) && e.Wykonane);
-    }
-  }
-
-
-  usun(element)
-  {
-    this.lista = this.lista.filter(e => e != element);
-    this.szukaj(this.tekstInput);
-  }
-
-  wykonane(item: elementToDo)
-  {
-    console.log(item.nazwa);
-    item.Wykonane = true;
-    item.dataWykonania = new Date();
-    this.szukaj(this.tekstInput);
-  }
-
-  dodajDoListy()
-  {
-
-    console.log(this.tekstInput);
-
-    let nowyElement: elementToDo = {nazwa: this.tekstInput, Wykonane:false, dataWykonania: null};
-    this.lista.push(nowyElement);
-    this.tekstInput = '';
-    this.szukaj(this.tekstInput);
   }
 
 

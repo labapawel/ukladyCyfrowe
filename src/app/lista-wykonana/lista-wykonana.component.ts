@@ -12,7 +12,7 @@ export class ListaWykonanaComponent implements OnInit {
 
   constructor(private _listaToDo: ListaToDoService) {
     this._listaToDo.getList().subscribe( (_list) => {
-      this.lista = _list.filter(e => !e.Wykonane);
+      this.lista = _list.filter(e => e.Wykonane);
     })
    }
 

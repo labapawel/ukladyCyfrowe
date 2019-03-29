@@ -45,5 +45,18 @@ export class ListaToDoService {
     return this._obs.asObservable();
   }
 
-  constructor() { }
+  constructor() {
+    let lista = localStorage.getItem("listaTODo");
+    if(lista != undefined && lista != "")
+      this.lista =  JSON.parse(lista);
+    else  this.lista = [];
+
+    this._obs.next(this.lista);
+
+    console.log(this.lista);
+
+    this.getList().subscribe( (item) => {
+      localStorage.setItem("listaTODo", JSON.stringify(this.lista));
+    } );
+  }
 }
