@@ -1,16 +1,16 @@
 import { ListaToDoService, elementToDo } from './../lista-to-do.service';
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.less']
+  styleUrls: ['./lista.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 
 
 export class ListaComponent implements OnInit {
-
   lista: Array<elementToDo>;
 
   constructor(private _listaToDo: ListaToDoService) {
@@ -18,6 +18,14 @@ export class ListaComponent implements OnInit {
       this.lista = _list.filter(e => !e.Wykonane);
     })
    }
+
+   bgColor(): string
+    {
+      let tab = ['red','green','#fafafa'];
+      let los = Math.floor(Math.random() * 3);
+      return tab[los];
+    }
+
 
    usun(item)
    {

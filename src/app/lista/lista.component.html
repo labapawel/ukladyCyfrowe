@@ -1,4 +1,13 @@
 <h1>Lista ToDo</h1>
-<ul>
-  <li *ngFor="let item of lista; let i = index"  >{{item.nazwa}} <span class="btn btn-danger"  (click)="usun(item)">X</span> <span class="btn btn-success"  (click)="wykonane(item)">V</span></li>
-</ul>
+<div>
+  <div *ngFor="let item of lista; let i = index; let odd = even" 
+      [ngClass]="{row: true, ostatni: lista.length == 1, odd: odd}"  
+      [ngStyle]="{'background-color': bgColor()}"  
+      >
+          <div class="col-8">{{item.nazwa}}</div> 
+          <div class="col-4">
+              <span class="btn btn-danger"  (click)="usun(item)">X</span> 
+              <span class="btn btn-success"  (click)="wykonane(item)">V</span>
+          </div>
+  </div>
+</div>
