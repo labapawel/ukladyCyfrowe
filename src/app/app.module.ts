@@ -10,6 +10,7 @@ import { HeadComponent } from './head/head.component';
 import { ListaComponent } from './lista/lista.component';
 import { KalkulatorComponent } from './kalkulator/kalkulator.component';
 import { ListaWykonanaComponent } from './lista-wykonana/lista-wykonana.component';
+import { ZegarComponent } from './zegar/zegar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ListaWykonanaComponent } from './lista-wykonana/lista-wykonana.componen
     ListaComponent,
     KalkulatorComponent,
     ListaWykonanaComponent,
+    ZegarComponent,
   ],
   imports: [
     BrowserModule,

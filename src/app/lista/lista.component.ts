@@ -1,6 +1,7 @@
 import { ListaToDoService, elementToDo } from './../lista-to-do.service';
 import {Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import * as moment from 'moment'; // add this 1 of 4
 
 @Component({
   selector: 'app-lista',
@@ -17,10 +18,27 @@ export class ListaComponent implements OnInit {
     this._listaToDo.getList().subscribe( (_list) => {
       this.lista = _list.filter(e => !e.Wykonane);
     })
+
+   // moment().locale('pl');
    }
 
-   bgColor(): string
+   iledni(item)
+   {
+     return moment(item.Dodano).locale('pl').calendar();
+   }
+
+   bgColor(zmienna:elementToDo): string
     {
+      const ileDni = moment().diff(zmienna.Dodano, 'day');
+
+      if (ileDni < 3) {
+        return 'green';
+      } else if (ileDni > 7) {
+        return '#f45641';
+      } else {
+        return '#f4b642';
+      }
+
       let tab = ['red','green','#fafafa'];
       let los = Math.floor(Math.random() * 3);
       return tab[los];

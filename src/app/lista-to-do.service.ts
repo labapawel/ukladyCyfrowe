@@ -5,6 +5,7 @@ export interface elementToDo {
   nazwa: string;
   dataWykonania: Date;
   Wykonane: boolean;
+  Dodano: Date;
 }
 
 
@@ -19,7 +20,7 @@ export class ListaToDoService {
 
   dodajElement(opis: string): elementToDo
   {
-    let nowyElement: elementToDo = {nazwa: opis, Wykonane: false, dataWykonania: null};
+    let nowyElement: elementToDo = {nazwa: opis, Wykonane: false, Dodano: new Date(), dataWykonania: null};
     this.lista.push(nowyElement);
     this._obs.next(this.lista);
     return nowyElement;

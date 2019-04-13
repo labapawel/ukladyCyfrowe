@@ -1,8 +1,11 @@
-<app-kalkulator></app-kalkulator>
 
-<app-head></app-head>
 
 <div class="container">
+  <div class="row">
+      <div class="col-md">
+        <app-zegar></app-zegar>
+      </div>
+  </div>
   <div class="row">
     <div class="col-md text-right">
     <input [(ngModel)]="tekstInput" />
@@ -22,3 +25,5 @@
 
   <router-outlet></router-outlet>
 </div>
+
+<app-kalkulator></app-kalkulator>

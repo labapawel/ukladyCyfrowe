@@ -1,12 +1,12 @@
 <h1>Lista ToDo</h1>
 <div>
-  <div *ngFor="let item of lista; let i = index; let odd = even" 
-      [ngClass]="{row: true, ostatni: lista.length == 1, odd: odd}"  
-      [ngStyle]="{'background-color': bgColor()}"  
+  <div *ngFor="let item of lista; let i = index; let odd = even"
+      [ngClass]="{row: true, ostatni: lista.length == 1, odd: odd}"
+      [ngStyle]="{'color': bgColor(item)}"
       >
-          <div class="col-8">{{item.nazwa}}</div> 
+          <div class="col-8">{{item.nazwa}} {{iledni(item)}}</div>
           <div class="col-4">
-              <span class="btn btn-danger"  (click)="usun(item)">X</span> 
+              <span class="btn btn-danger"  (click)="usun(item)">X</span>
               <span class="btn btn-success"  (click)="wykonane(item)">V</span>
           </div>
   </div>
